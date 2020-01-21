@@ -12,6 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        print("will Finish Launching")
+        
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
@@ -49,6 +56,11 @@ extension AppDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // リモート通知を受け取った
+        print("didReceiveRemoteNotification")
+    }
 }
 
 extension AppDelegate {
@@ -67,9 +79,22 @@ extension AppDelegate {
     }
 }
 
+// UISceneを含むプロジェクトの場合、かつiOS13以上の場合、かなり状況が変わるので注意
+
 // DeepLink Background->Foreground
 // will Enter Foreground -> application open url sourceApplication annotation -> applicationDidBecomeActive
 //
 
 // DeepLink Launch
 // didFinishLaunchingWithOptions -> application open url sourceApplication annotation -> applicationDidBecomeActive
+
+
+// Push Foreground
+// didReceiveRemoteNotification userInfo
+
+// Push Background->Foreground
+// didReceiveRemoteNotification userInfo fetchCompletionHandler
+
+// Push Launch
+// willLaunch -> didLaunch -> didReceiveRemoteNotification
+ 
