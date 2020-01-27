@@ -86,7 +86,9 @@ extension AppDelegate {
 //
 
 // DeepLink Launch
-// didFinishLaunchingWithOptions -> application open url sourceApplication annotation -> applicationDidBecomeActive
+// ①didFinishLaunchingWithOptions -> ②Main Interface -> ③didFinishLaunchingWithOptions -> ④application open url sourceApplication annotation -> ⑤applicationDidBecomeActive
+// didFinishLaunchingWithOptionsでurlはとれない
+
 
 
 // Push Foreground
